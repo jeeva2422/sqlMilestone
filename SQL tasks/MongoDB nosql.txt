@@ -1,0 +1,11 @@
+1.b) MongoDB
+2.a) Splitting a database into smaller, more manageable pieces called shards
+3.a) A type of data structure used to store data in MongoDB
+4.a) A group of related documents
+5.a) A group of MongoDB instances that maintain the same data set
+6.d) None of the above
+7.c) To add an element to the end of an array
+8.a) To increment the value of a field by a specified amount
+9.a) To set the value of a field in a document
+10.c) To skip a specified number of documents in the result set
+

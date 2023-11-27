@@ -1,0 +1,89 @@
+mysql> create database tasks;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> use tasks;
+Database changed
+mysql> CREATE TABLE Teacher ( TeacherID INT PRIMARY KEY,Name VARCHAR(255),Department VARCHAR(50),DateOfAdmission DATE,Salary DECIMAL(10, 2),Gender CHAR(1));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> INSERT INTO Teacher (TeacherID, Name, Department, DateOfAdmission, Salary, Gender)VALUES (1, 'John', 'Computer', '2022-01-01', 15000, 'M'),(2, 'Jane', 'History', '2022-02-01', 12000, 'F'),(3, 'Bob', 'Computer', '2022-03-01', 18000, 'M'),(4, 'Alice', 'History', '2022-04-01', 10000, 'F'),(5, 'Charlie', 'Computer', '2022-05-01', 11000, 'M');
+Query OK, 5 rows affected (0.02 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Teacher WHERE Department = 'Computer';
++-----------+---------+------------+-----------------+----------+--------+
+| TeacherID | Name    | Department | DateOfAdmission | Salary   | Gender |
++-----------+---------+------------+-----------------+----------+--------+
+|         1 | John    | Computer   | 2022-01-01      | 15000.00 | M      |
+|         3 | Bob     | Computer   | 2022-03-01      | 18000.00 | M      |
+|         5 | Charlie | Computer   | 2022-05-01      | 11000.00 | M      |
++-----------+---------+------------+-----------------+----------+--------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT Name FROM Teacher WHERE Department = 'History' AND Gender = 'F';
++-------+
+| Name  |
++-------+
+| Jane  |
+| Alice |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT Name, DateOfAdmission FROM Teacher ORDER BY DateOfAdmission ASC;
++---------+-----------------+
+| Name    | DateOfAdmission |
++---------+-----------------+
+| John    | 2022-01-01      |
+| Jane    | 2022-02-01      |
+| Bob     | 2022-03-01      |
+| Alice   | 2022-04-01      |
+| Charlie | 2022-05-01      |
++---------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT Name, Department, Salary FROM Teacher WHERE Gender = 'M';
++---------+------------+----------+
+| Name    | Department | Salary   |
++---------+------------+----------+
+| John    | Computer   | 15000.00 |
+| Bob     | Computer   | 18000.00 |
+| Charlie | Computer   | 11000.00 |
++---------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM Teacher WHERE Salary < 10000;
++----------+
+| COUNT(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> INSERT INTO Teacher (TeacherID, Name, Department, DateOfAdmission, Salary, Gender)VALUES (8, 'Mersha', 'Computer', '2000-01-01', 12000, 'M');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM Teacher WHERE Salary = (SELECT MIN(Salary) FROM Teacher);
++-----------+-------+------------+-----------------+----------+--------+
+| TeacherID | Name  | Department | DateOfAdmission | Salary   | Gender |
++-----------+-------+------------+-----------------+----------+--------+
+|         4 | Alice | History    | 2022-04-01      | 10000.00 | F      |
++-----------+-------+------------+-----------------+----------+--------+
+1 row in set (0.01 sec)
+
+mysql> SELECT * FROM Teacher WHERE Salary = (SELECT MIN(Salary) FROM Teacher WHERE Salary > (SELECT MIN(Salary) FROM Teacher));
++-----------+---------+------------+-----------------+----------+--------+
+| TeacherID | Name    | Department | DateOfAdmission | Salary   | Gender |
++-----------+---------+------------+-----------------+----------+--------+
+|         5 | Charlie | Computer   | 2022-05-01      | 11000.00 | M      |
++-----------+---------+------------+-----------------+----------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(Salary) FROM Teacher WHERE Department = 'History';
++--------------+
+| AVG(Salary)  |
++--------------+
+| 11000.000000 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> Terminal close -- exit!

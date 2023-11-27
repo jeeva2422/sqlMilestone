@@ -1,0 +1,378 @@
+test> use miletone
+switched to db miletone
+miletone> db.createCollection("Bookstore")
+miletone> db.Bookstore.insertMany([{ book_id: 1, Btitle: "The Great Gatsby", authors: ["F. Scott Fitzgerald"], price: 1899 },{ book_id: 2, Btitle: "To Kmiletone> db.Bookstore.insertMany([{ book_id: 1, Btitle: "The Great Gatsby", authors: ["F. Scott Fitzgerald"], price: 1899 },{ book_id: 2, Btitle: "To Kmiletone> db.Bookstore.insertMany([{ book_id: 1, Btitle: "The Great Gatsby", authors: ["F. Scott Fitzgerald"], price: 1899 },{ book_id: 2, Btitle: "To Kill a Mockingbird", authors: ["Harper Lee"], price: 1250 },{ book_id: 3, Btimiletone> db.Bookstore.insertMany([{ book_id: 1, Btitle: "The Great Gatsby", authors: ["F. Scott Fitzgerald"], price: 1899 },{ book_id: 2, Btitle: "To Kill a Mockingbird", authors: ["Harper Lee"], price: 1250 },{ book_id: 3, Btimiletone> db.Bookstore.insertMany([{ book_id: 1, Btitle: "The Great Gatsby", authors: ["F. Scott Fitzgerald"], price: 1899 },{ book_id: 2, Btitle: "To Kill a Mockingbird", authors: ["Harper Lee"], price: 1250 },{ book_id: 3, Btitle: "1984", authors: ["George Orwell"], price: 1099 },{ book_id: 4, Btitle:miletone> db.Bookstore.insertMany([{ book_id: 1, Btitle: "The Great Gatsby", authors: ["F. Scott Fitzgerald"], price: 1899 },{ book_id: 2, Btitle: "To Kill a Mockingbird", authors: ["Harper Lee"], price: 1250 },{ book_id: 3, Btitle: "1984", authors: ["George Orwell"], price: 1099 },{ book_id: 4, Btitle: "Pride and Prejudice", authors: ["Jane Austen"], price: 575 },{ book_id: 5, Btitle: "The Catcher in the Rye", authors: ["J.D. Salinger"], price: 142 },{ book_id: 6, Btitle: "The Lord of the Rings", authors: ["J.R.R. Tolkien"], price: 250 },{ book_id: 7, Btitle: "Harry Potter and the Sorcerer's Stone", authors: ["J.K. Rowling"], price: 699 },{ book_id: 8, Btitle: "The Hobbit", authors: ["J.R.R. Tolkien"], price: 975 },{ book_id: 9, Btitle: "Brave New World", authors: ["Aldous Huxley"], price: 1350 },{ book_id: 10, Btitle: "Theonicles of Narnia", authors: ["C.S. Lewis"], price: 725 }
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('65643693616f84aeea7fbde9'),
+    '1': ObjectId('65643693616f84aeea7fbdea'),
+    '2': ObjectId('65643693616f84aeea7fbdeb'),
+    '3': ObjectId('65643693616f84aeea7fbdec'),
+    '4': ObjectId('65643693616f84aeea7fbded'),
+    '5': ObjectId('65643693616f84aeea7fbdee'),
+    '6': ObjectId('65643693616f84aeea7fbdef'),
+    '7': ObjectId('65643693616f84aeea7fbdf0'),
+    '8': ObjectId('65643693616f84aeea7fbdf1'),
+    '9': ObjectId('65643693616f84aeea7fbdf2')
+  }
+}
+miletone> db.Bookstore.find({}, { _id: 0, book_id: 1, Btitle: 1, authors: 1,
+ price: 1 }).limit(10);
+[
+  {
+    book_id: 1,
+    Btitle: 'The Great Gatsby',
+    authors: [ 'F. Scott Fitzgerald' ],
+    price: 1899
+  },
+  {
+    book_id: 2,
+    Btitle: 'To Kill a Mockingbird',
+    authors: [ 'Harper Lee' ],
+    price: 1250
+  },
+  {
+    book_id: 3,
+    Btitle: '1984',
+    authors: [ 'George Orwell' ],
+    price: 1099
+  },
+  {
+    book_id: 4,
+    Btitle: 'Pride and Prejudice',
+    authors: [ 'Jane Austen' ],
+    price: 575
+  },
+  {
+    book_id: 5,
+    Btitle: 'The Catcher in the Rye',
+    authors: [ 'J.D. Salinger' ],
+    price: 142
+  },
+  {
+    book_id: 6,
+    Btitle: 'The Lord of the Rings',
+    authors: [ 'J.R.R. Tolkien' ],
+    price: 250
+  },
+  {
+    book_id: 7,
+    Btitle: "Harry Potter and the Sorcerer's Stone",
+    authors: [ 'J.K. Rowling' ],
+    price: 699
+  },
+  {
+    book_id: 8,
+    Btitle: 'The Hobbit',
+    authors: [ 'J.R.R. Tolkien' ],
+    price: 975
+  },
+  {
+    book_id: 9,
+    Btitle: 'Brave New World',
+    authors: [ 'Aldous Huxley' ],
+    price: 1350
+  },
+  {
+    book_id: 10,
+    Btitle: 'The Chronicles of Narnia',
+    authors: [ 'C.S. Lewis' ],
+    price: 725
+  }
+]
+miletone> db.Bookstore.find({}, { _id: 0, Btitle: 1, authors: 1, price: 1 });
+[
+  {
+    Btitle: 'The Great Gatsby',
+    authors: [ 'F. Scott Fitzgerald' ],
+    price: 1899
+  },
+  {
+    Btitle: 'To Kill a Mockingbird',
+    authors: [ 'Harper Lee' ],
+    price: 1250
+  },
+  { Btitle: '1984', authors: [ 'George Orwell' ], price: 1099 },
+  {
+    Btitle: 'Pride and Prejudice',
+    authors: [ 'Jane Austen' ],
+    price: 575
+  },
+  {
+    Btitle: 'The Catcher in the Rye',
+    authors: [ 'J.D. Salinger' ],
+    price: 142
+  },
+  {
+    Btitle: 'The Lord of the Rings',
+    authors: [ 'J.R.R. Tolkien' ],
+    price: 250
+  },
+  {
+    Btitle: "Harry Potter and the Sorcerer's Stone",
+    authors: [ 'J.K. Rowling' ],
+    price: 699
+  },
+  { Btitle: 'The Hobbit', authors: [ 'J.R.R. Tolkien' ], price: 975 },
+  {
+    Btitle: 'Brave New World',
+    authors: [ 'Aldous Huxley' ],
+    price: 1350
+  },
+  {
+    Btitle: 'The Chronicles of Narnia',
+    authors: [ 'C.S. Lewis' ],
+    price: 725
+  }
+]
+miletone> db.Bookstore.find({}, { _id: 0, Btitle: 1, authors: 1, price: 1 }).limit(3).sort({ authors: 1 });
+[
+  {
+    Btitle: 'Brave New World',
+    authors: [ 'Aldous Huxley' ],
+    price: 1350
+  },
+  {
+    Btitle: 'The Chronicles of Narnia',
+    authors: [ 'C.S. Lewis' ],
+    price: 725
+  },
+  {
+    Btitle: 'The Great Gatsby',
+    authors: [ 'F. Scott Fitzgerald' ],
+    price: 1899
+  }
+]
+miletone> db.Bookstore.find({ price: { $gt: 1500 } });
+[
+  {
+    _id: ObjectId('65643693616f84aeea7fbde9'),
+    book_id: 1,
+    Btitle: 'The Great Gatsby',
+    authors: [ 'F. Scott Fitzgerald' ],
+    price: 1899
+  }
+]
+miletone> db.Bookstore.find({ price: { $gt: 800, $lt: 2000 } }, { _id: 0, BtBtitle: 1 });
+[
+  { Btitle: 'The Great Gatsby' },
+  { Btitle: 'To Kill a Mockingbird' },
+  { Btitle: '1984' },
+  { Btitle: 'The Hobbit' },
+  { Btitle: 'Brave New World' }
+]
+miletone> db.Bookstore.find().sort({ Btitle: 1 });
+[
+  {
+    _id: ObjectId('65643693616f84aeea7fbdeb'),
+    book_id: 3,
+    Btitle: '1984',
+    authors: [ 'George Orwell' ],
+    price: 1099
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdf1'),
+    book_id: 9,
+    Btitle: 'Brave New World',
+    authors: [ 'Aldous Huxley' ],
+    price: 1350
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdef'),
+    book_id: 7,
+    Btitle: "Harry Potter and the Sorcerer's Stone",
+    authors: [ 'J.K. Rowling' ],
+    price: 699
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdec'),
+    book_id: 4,
+    Btitle: 'Pride and Prejudice',
+    authors: [ 'Jane Austen' ],
+    price: 575
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbded'),
+    book_id: 5,
+    Btitle: 'The Catcher in the Rye',
+    authors: [ 'J.D. Salinger' ],
+    price: 142
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdf2'),
+    book_id: 10,
+    Btitle: 'The Chronicles of Narnia',
+    authors: [ 'C.S. Lewis' ],
+    price: 725
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbde9'),
+    book_id: 1,
+    Btitle: 'The Great Gatsby',
+    authors: [ 'F. Scott Fitzgerald' ],
+    price: 1899
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdf0'),
+    book_id: 8,
+    Btitle: 'The Hobbit',
+    authors: [ 'J.R.R. Tolkien' ],
+    price: 975
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdee'),
+    book_id: 6,
+    Btitle: 'The Lord of the Rings',
+    authors: [ 'J.R.R. Tolkien' ],
+    price: 250
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdea'),
+    book_id: 2,
+    Btitle: 'To Kill a Mockingbird',
+    authors: [ 'Harper Lee' ],
+    price: 1250
+  }
+]
+miletone> db.Bookstore.find().sort({ Btitle: 1 });
+[
+  {
+    _id: ObjectId('65643693616f84aeea7fbdeb'),
+    book_id: 3,
+    Btitle: '1984',
+    authors: [ 'George Orwell' ],
+    price: 1099
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdf1'),
+    book_id: 9,
+    Btitle: 'Brave New World',
+    authors: [ 'Aldous Huxley' ],
+    price: 1350
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdef'),
+    book_id: 7,
+    Btitle: "Harry Potter and the Sorcerer's Stone",
+    authors: [ 'J.K. Rowling' ],
+    price: 699
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdec'),
+    book_id: 4,
+    Btitle: 'Pride and Prejudice',
+    authors: [ 'Jane Austen' ],
+    price: 575
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbded'),
+    book_id: 5,
+    Btitle: 'The Catcher in the Rye',
+    authors: [ 'J.D. Salinger' ],
+    price: 142
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdf2'),
+    book_id: 10,
+    Btitle: 'The Chronicles of Narnia',
+    authors: [ 'C.S. Lewis' ],
+    price: 725
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbde9'),
+    book_id: 1,
+    Btitle: 'The Great Gatsby',
+    authors: [ 'F. Scott Fitzgerald' ],
+    price: 1899
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdf0'),
+    book_id: 8,
+    Btitle: 'The Hobbit',
+    authors: [ 'J.R.R. Tolkien' ],
+    price: 975
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdee'),
+    book_id: 6,
+    Btitle: 'The Lord of the Rings',
+    authors: [ 'J.R.R. Tolkien' ],
+    price: 250
+  },
+  {
+    _id: ObjectId('65643693616f84aeea7fbdea'),
+    book_id: 2,
+    Btitle: 'To Kill a Mockingbird',
+    authors: [ 'Harper Lee' ],
+    price: 1250
+  }
+]
+miletone> db.Bookstore.find({ authors: "Harper Lee" });
+[
+  {
+    _id: ObjectId('65643693616f84aeea7fbdea'),
+    book_id: 2,
+    Btitle: 'To Kill a Mockingbird',
+    authors: [ 'Harper Lee' ],
+    price: 1250
+  }
+]
+miletone> db.Bookstore.update({ Btitle: "To Kill a Mockingbird" }, { $inc: { price: 500 } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+miletone> db.Bookstore.update({ Btitle: "The Lord of the Rings" }, { $set: { field_to_update: "Lord of rings" } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+miletone> db.Bookstore.update({ Btitle: "The Chronicles of Narnia" }, { $pus$push: { release: "2010-10-10" } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+miletone> db.Bookstore.update({ Btitle: "The Chronicles of Narnia" }, { $pul$pull: { release: "2010-10-10" } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+miletone> db.Bookstore.update({ Btitle: "The Great Gatsby" }, {$setOnInsert: { type: "self help" } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+miletone> db.Bookstore.update({ Btitle: "The Catcher in the Rye" }, { $set: miletone> db.Bookstore.update({ Btitle: "The Catcher in the Rye" }, { $set: { price: 2000 }, $setOnInsert: { type: "motivation" } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+miletone> db.Bookstore.update({ Btitle: "The Catcher in the Rye" }, { $set: miletone> db.Bookstore.update({ Btitle: "The Catcher in the Rye" }, { $set: { price: 2000 }, $setOnInsert: { type: "motivation" } });
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+miletone>
